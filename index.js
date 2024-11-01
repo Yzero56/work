@@ -39,11 +39,11 @@ app.post('/api/results',function(req, res){
     if (!formData || !selectedJobCategories || !selectedEmploymentTypes) {
         return res.status(400).send("필수 데이터가 누락되었습니다.")}
         
-        res.send(200).send(("필수 데이터가 누락되었습니다."));
+        return res.status(200).send(("success!"));
 });
 
 app.post('/api/send-email', function(req, res){
-    const { handleSendEmail } = req.body;
+    const { formData } = req.body;
 
     const transporter = nodemailer.createTransport({
         service : 'gmail',
